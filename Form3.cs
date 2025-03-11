@@ -30,9 +30,14 @@ namespace WinFormsApp2
 
         private void EditButton_Click(object? sender, EventArgs e)
         {
-            Image img = Image.FromFile(pathBox.Text + ".png");
 
-            pictureBox1.Image = SetImage(id, img);
+            if (!string.IsNullOrEmpty(pathBox.Text))
+            {
+                Image img = Image.FromFile(pathBox.Text + ".png");
+                pictureBox1.Image = SetImage(id, img);
+            }
+            else
+                MessageBox.Show("Ошибка пути к фото.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public string GetName(int id)

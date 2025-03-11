@@ -43,18 +43,24 @@ namespace WinFormsApp2
             {
                 connection.Open();
 
-                string query = @"SELECT id FROM users WHERE Username = @Username AND Password = @Password";
+                string query = @"SELECT id, Password FROM users WHERE Username = @Username";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", login);
-                    command.Parameters.AddWithValue("@Password", password);
-
-                    object result = command.ExecuteScalar();
-
-                    if (result != null)
+                    
+                    using(SqlDataReader reader = command.ExecuteReader())
                     {
-                        return Convert.ToInt32(result);
+                        if(reader.Read())
+                        {
+                            int id = reader.GetInt32(0);
+                            string storedPassword = reader.GetString(1);
+
+                            if (BCrypt.Net.BCrypt.Verify(password,storedPassword))
+                            {
+                                return id;
+                            }
+                        }
                     }
                 }
             }

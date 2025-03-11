@@ -137,3 +137,4 @@ C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windo
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.genruntimeconfig.cache
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\ref\WinFormsApp2.dll
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.sourcelink.json
+C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\bin\Debug\net9.0-windows\BCrypt.Net-Next.dll

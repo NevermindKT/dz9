@@ -43,11 +43,13 @@ namespace WinFormsApp2
             {
                 connection.Open();
 
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
                 string query = $@"INSERT INTO users (Username, Password) VALUES (@Username, @Password)";
                 using (SqlCommand command = new SqlCommand(query, connection)) 
                 {
                     command.Parameters.AddWithValue("@Username", login);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Password", hashedPassword);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
