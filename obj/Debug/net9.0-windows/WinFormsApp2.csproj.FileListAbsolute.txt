@@ -123,7 +123,6 @@ C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\bin\Debug\net9.0-windo
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\bin\Debug\net9.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.csproj.AssemblyReference.cache
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.LoginForm.resources
-C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.RegisterForm.resources
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.MainForm.resources
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.csproj.GenerateResource.cache
 C:\Users\NEVERMIND\source\repos\WinFormsApp2\WinFormsApp2\obj\Debug\net9.0-windows\WinFormsApp2.GeneratedMSBuildEditorConfig.editorconfig

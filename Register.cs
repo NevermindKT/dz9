@@ -16,8 +16,44 @@ namespace WinFormsApp2
 
         private void CreateButton_Click(object? sender, EventArgs e)
         {
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.ShowDialog();
+            if (string.IsNullOrWhiteSpace(loginTextBox.Text) || string.IsNullOrWhiteSpace(passwordTextBox.Text))
+            {
+                MessageBox.Show("Введите все поля.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                User user = new User(loginTextBox.Text, passwordTextBox.Text);
+                CreateUser(user);
+            }
+        }
+
+        public void CreateUser(User user)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = $@"INSERT INTO users (Username, Password) VALUES (@Username, @Password)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    command.Parameters.AddWithValue("@Password", user.Password);
+
+                    int rowsAffected;
+
+                    try { rowsAffected = command.ExecuteNonQuery(); }
+
+                    catch (Exception ex) { rowsAffected = -1; }
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Все круто.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Ошибка регистрации.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void LogInButton_Click(object? sender, EventArgs e)
