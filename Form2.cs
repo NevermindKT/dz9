@@ -32,24 +32,23 @@ namespace WinFormsApp2
             }
             else
             {
-                CreateUser(loginBox.Text, passwordBox.Text);
+                User user = new User(loginBox.Text, passwordBox.Text);
+                CreateUser(user);
                 this.Close();
             }
         }
 
-        public void CreateUser(string login, string password)
+        public void CreateUser(User user)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-
                 string query = $@"INSERT INTO users (Username, Password) VALUES (@Username, @Password)";
                 using (SqlCommand command = new SqlCommand(query, connection)) 
                 {
-                    command.Parameters.AddWithValue("@Username", login);
-                    command.Parameters.AddWithValue("@Password", hashedPassword);
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    command.Parameters.AddWithValue("@Password", user.Password);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
