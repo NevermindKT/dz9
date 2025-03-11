@@ -30,7 +30,7 @@ namespace WinFormsApp2
 
         private void EditButton_Click(object? sender, EventArgs e)
         {
-            Image img = Image.FromFile(pathBox.Text);
+            Image img = Image.FromFile(pathBox.Text + ".png");
 
             pictureBox1.Image = SetImage(id, img);
         }

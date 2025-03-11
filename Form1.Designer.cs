@@ -30,7 +30,7 @@
         {
             loginLabel = new Label();
             loginTextBox = new TextBox();
-            passwrdTextBox = new TextBox();
+            passwordTextBox = new TextBox();
             passwordLabel = new Label();
             LogInButton = new Button();
             CreateButton = new Button();
@@ -54,13 +54,13 @@
             loginTextBox.Size = new Size(517, 29);
             loginTextBox.TabIndex = 1;
             // 
-            // passwrdTextBox
+            // passwordTextBox
             // 
-            passwrdTextBox.Font = new Font("Segoe UI", 12F);
-            passwrdTextBox.Location = new Point(181, 112);
-            passwrdTextBox.Name = "passwrdTextBox";
-            passwrdTextBox.Size = new Size(517, 29);
-            passwrdTextBox.TabIndex = 3;
+            passwordTextBox.Font = new Font("Segoe UI", 12F);
+            passwordTextBox.Location = new Point(181, 112);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(517, 29);
+            passwordTextBox.TabIndex = 3;
             // 
             // passwordLabel
             // 
@@ -99,7 +99,7 @@
             ClientSize = new Size(740, 225);
             Controls.Add(CreateButton);
             Controls.Add(LogInButton);
-            Controls.Add(passwrdTextBox);
+            Controls.Add(passwordTextBox);
             Controls.Add(passwordLabel);
             Controls.Add(loginTextBox);
             Controls.Add(loginLabel);
@@ -113,7 +113,7 @@
 
         private Label loginLabel;
         private TextBox loginTextBox;
-        private TextBox passwrdTextBox;
+        private TextBox passwordTextBox;
         private Label passwordLabel;
         private Button LogInButton;
         private Button CreateButton;

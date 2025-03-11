@@ -31,7 +31,10 @@ namespace WinFormsApp2
                 return;
             }
             else
+            {
                 CreateUser(loginBox.Text, passwordBox.Text);
+                this.Close();
+            }
         }
 
         public void CreateUser(string login, string password)

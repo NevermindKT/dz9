@@ -22,12 +22,16 @@ namespace WinFormsApp2
 
         private void LogInButton_Click(object? sender, EventArgs e)
         {
-            int tempId = logIn(loginTextBox.Text, passwrdTextBox.Text);
+            int tempId = logIn(loginTextBox.Text, passwordTextBox.Text);
+
+            //MessageBox.Show($"{tempId}", "aaa", MessageBoxButtons.OK);
 
             if (tempId >= 0)
             {
                 MainForm mainForm = new MainForm(tempId);
+                this.Hide();
                 mainForm.ShowDialog();
+                this.Show();
             }
             else
                 MessageBox.Show("Неверный логин/пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -39,22 +43,18 @@ namespace WinFormsApp2
             {
                 connection.Open();
 
-                string query = @"SELECT u.Username, u.Password, u.id
-                                 FROM users u";
+                string query = @"SELECT id FROM users WHERE Username = @Username AND Password = @Password";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
-                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
-                    {
-                        string tempLogin = reader.GetString(0);
-                        string tempPassword = reader.GetString(1);
-                        int userId = reader.GetInt32(2);
+                    command.Parameters.AddWithValue("@Username", login);
+                    command.Parameters.AddWithValue("@Password", password);
 
-                        if (tempLogin == login && tempPassword == password)
-                        {
-                            return userId;
-                        }
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
                     }
                 }
             }

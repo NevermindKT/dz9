@@ -78,7 +78,7 @@
             // 
             pathBox.Location = new Point(580, 197);
             pathBox.Name = "pathBox";
-            pathBox.PlaceholderText = "Path to image";
+            pathBox.PlaceholderText = "Path to image(.png)";
             pathBox.Size = new Size(208, 23);
             pathBox.TabIndex = 4;
             // 
